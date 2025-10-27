@@ -1,28 +1,30 @@
-
+# student_details.py
+# Program to display student details
 import sys
 
-def add_numbers(a, b):
-    """Return the sum of two numbers."""
-    return a + b
+def display_student_details(name, roll_no, marks):
+    print("\n=== Student Details ===")
+    print(f"Name       : {name}")
+    print(f"Roll No.    : {roll_no}")
+    print(f"Marks       : {marks}")
+    print("========================")
 
 if __name__ == "__main__":
-    print("=== Addition of Two Numbers ===")
+    print("=== Student Details Program ===")
+
     try:
-        if len(sys.argv) == 3:
-            # Case 1: Arguments passed (for Jenkins or CLI)
-            a = float(sys.argv[1])
-            b = float(sys.argv[2])
+        if len(sys.argv) == 4:
+            # Case 1: Arguments passed (from Jenkins or CLI)
+            name = sys.argv[1]
+            roll_no = sys.argv[2]
+            marks = float(sys.argv[3])
         else:
-            # Case 2: No arguments passed (for console use)
-            a = float(input("Enter first number: "))
-            b = float(input("Enter second number: "))
+            # Case 2: No arguments passed (manual console input)
+            name = input("Enter student name: ")
+            roll_no = input("Enter roll number: ")
+            marks = float(input("Enter marks: "))
 
-        print("\n=== Program Parameters ===")
-        print("First Number  :", a)
-        print("Second Number :", b)
-
-        result = add_numbers(a, b)
-        print(f"\nSum = {result:.2f}")
+        display_student_details(name, roll_no, marks)
 
     except ValueError:
-        print("Invalid input! Please enter numeric values.")
+        print("Invalid input! Please enter correct data types.")
